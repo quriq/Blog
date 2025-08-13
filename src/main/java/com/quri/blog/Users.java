@@ -10,14 +10,16 @@ public class Users {
     private Long id;
     private String login;
     private String psw;
+    private String role;
 
     public Users() {
     }
 
-    public Users(Long id, String login, String psw) {
+    public Users(Long id, String login, String psw, String role) {
         this.id = id;
         this.login = login;
         this.psw = psw;
+        this.role = role;
     }
 
     public Long getId() {
@@ -42,5 +44,13 @@ public class Users {
 
     public void setPsw(String psw) {
         this.psw = psw;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

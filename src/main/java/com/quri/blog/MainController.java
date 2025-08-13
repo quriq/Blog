@@ -13,8 +13,7 @@ public class MainController {
     public String about() {
         return "about";
     }
-    @GetMapping("/registration")
-    public String registration() {
-        return "registration";
-    }
+    @GetMapping("/reg")
+    public String reg() {
+        return "reg";}
 }

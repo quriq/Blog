@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Test Page</title>
     <link th:href="@{/css/main.css}" rel="stylesheet">
@@ -14,9 +14,13 @@
             <ul>
                 <li><a class="button" href="/blog">Блог</a></li>
                 <li><a class="button" href="/about">О нас</a></li>
-                <li><a class="button" href="/registration">Регистрация</a></li>
+                <li><a class="button" href="/reg">Регистрация</a></li>
+                <li><form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form></li>
             </ul>
     </div>
+
 </header>
 <h1>АОАШАОАЩАГАГПАА АЛОАО  ША Шзэ</h1>
 <div class="main-text">
