@@ -14,9 +14,13 @@
             <ul>
                 <li><a class="button" href="/blog">Блог</a></li>
                 <li><a class="button" href="/about">О нас</a></li>
-                <li><a class="button" href="/registration">Регистрация</a></li>
+                <li><a class="button" href="/reg">Регистрация</a></li>
+                <li><form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form></li>
             </ul>
     </div>
+
 </header>
 <h1>АОАШАОАЩАГАГПАА АЛОАО  ША Шзэ</h1>
 <div class="main-text">
