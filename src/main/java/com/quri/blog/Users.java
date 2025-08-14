@@ -2,6 +2,8 @@ package com.quri.blog;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
 public class Users {
@@ -10,7 +12,26 @@ public class Users {
     private Long id;
     private String login;
     private String psw;
-    private String role;
+    private boolean enabled;
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set <Role> roles;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public Users() {
     }
@@ -19,7 +40,6 @@ public class Users {
         this.id = id;
         this.login = login;
         this.psw = psw;
-        this.role = role;
     }
 
     public Long getId() {
@@ -46,11 +66,7 @@ public class Users {
         this.psw = psw;
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+
+
 }
