@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @Autowired
-    private UsersRepo usersRepo;
     @GetMapping("/")
     public String home() {
         return "home";

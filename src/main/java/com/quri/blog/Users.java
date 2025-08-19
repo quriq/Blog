@@ -62,8 +62,8 @@ public class Users {
         return psw;
     }
 
-    public void setPsw(String psw) {
-        this.psw = psw;
+    public void setPsw(String hashedPassword) {
+        this.psw = hashedPassword;
     }
 
 
