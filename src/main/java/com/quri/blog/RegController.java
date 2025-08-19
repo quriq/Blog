@@ -21,7 +21,7 @@ private UserService userService;
         return "reg";}
     @PostMapping("/reg")
     public String regUser(@ModelAttribute("user") Users user) {
-            userService.registerNewUserAccount(user); // Используем UserService
+            userService.registerNewUserAccount(user);
             return "redirect:/login";
     }
 

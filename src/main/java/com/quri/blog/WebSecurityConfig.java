@@ -44,18 +44,4 @@ public class WebSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//    @Bean
-//    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-//        UserDetails admin = User.builder().username("admin").password(encoder.encode("admin")).roles("USER").build();
-//        UserDetails user = User.builder().username("user").password(encoder.encode("user")).roles("USER").build();
-//        return new InMemoryUserDetailsManager(admin,user);
-//    }
-    //    @Bean
-//    public UserDetailsService users(DataSource dataSource) {
-//        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
-//        jdbcUserDetailsManager.setUsersByUsernameQuery("select login, psw, enabled from users where login=?");
-//        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery("select login, 'USER' from users where login=?"); // Всем роль USER
-//        return jdbcUserDetailsManager;
-//    }
-
 }
