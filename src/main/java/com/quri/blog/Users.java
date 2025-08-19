@@ -2,6 +2,8 @@ package com.quri.blog;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
 public class Users {
@@ -10,11 +12,31 @@ public class Users {
     private Long id;
     private String login;
     private String psw;
+    private boolean enabled;
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set <Role> roles;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public Users() {
     }
 
-    public Users(Long id, String login, String psw) {
+    public Users(Long id, String login, String psw, String role) {
         this.id = id;
         this.login = login;
         this.psw = psw;
@@ -40,7 +62,11 @@ public class Users {
         return psw;
     }
 
-    public void setPsw(String psw) {
-        this.psw = psw;
+    public void setPsw(String hashedPassword) {
+        this.psw = hashedPassword;
     }
+
+
+
+
 }
