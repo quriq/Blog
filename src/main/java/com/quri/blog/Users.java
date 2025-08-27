@@ -12,7 +12,7 @@ public class Users {
     private Long id;
     private String login;
     private String psw;
-    private boolean enabled;
+    private boolean enabled = true;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
