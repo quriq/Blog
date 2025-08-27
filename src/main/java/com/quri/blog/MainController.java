@@ -11,11 +11,15 @@ public class MainController {
 @Autowired
 private PostsRepo postsRepo;
     @GetMapping("/")
-    public String home(Model model)
+    public String home(){
+        return "home";
+    }
+    @GetMapping("/blog")
+    public String blog(Model model)
     {
         Iterable<Posts> posts = postsRepo.findAll();
         model.addAttribute("posts", posts);
-        return "home";
+        return "blog";
     }
     @GetMapping("/about")
     public String about() {
