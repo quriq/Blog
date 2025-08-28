@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    margin: 0; /* Убираем стандартные отступы */
+    display: flex; /* Используем Flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    min-height: 100vh; /* Занимаем всю высоту экрана */
+}
+.registration-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Ширина контейнера */
+    text-align: center; /* Центрируем содержимое контейнера */
+}
+
+.sign-button {
+    /* Если .sign-button сам становится слишком широким,
+       либо уменьшите его width, либо задайте ему display: block и margin: auto */
+    width: 100%; /* Чтобы кнопка занимала всю ширину родителя */
+    /* Или если .sign-button имеет фиксированную ширину,
+       и кнопка внутри нее вылезает, то: */
+    /* margin: 0 auto; */ /* Центрирование самого .sign-button, если он имеет фиксированную ширину */
+    text-align: center; /* Центрирует inline-элементы, такие как кнопка, внутри div */
+}
+
+.sign-button input[type="submit"] {
+    width: 100%; /* Чтобы кнопка занимала всю ширину родителя (.sign-button) */
+    padding: 10px 15px; /* Пример отступов */
+    background-color: darkblue; /* Пример цвета */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box; /* Важно, чтобы padding и border не выходили за 100% */
+}
+
+/* При наведении */
+.sign-button input[type="submit"]:hover {
+    background-color: lightblue;
+}
