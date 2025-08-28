@@ -10,7 +10,9 @@
     <p th:text="${el.author}"/>
     <p th:text="${el.text}"/>
     <a th:href="'blog/' + ${el.id} + '/edit'">Редактировать</a>
-    <a th:href="'blog/' + ${el.id} + '/remove'">Удалить</a>
+    <form th:action="'blog/' + ${el.id} + '/remove'">
+        <button>Удалить</button>
+    </form>
 </div>
 <footer><p>© 2025 Мой Сайт</p></footer>
 </body>

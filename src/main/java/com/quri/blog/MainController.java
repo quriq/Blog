@@ -55,4 +55,30 @@ private PostsRepo postsRepo;
         return "id";
 
     }
+
+    @GetMapping("/blog/blog/{id}/edit")
+    public String edit(@PathVariable(value = "id") long id, Model model){
+        Optional<Posts> posts = postsRepo.findById(id);
+        ArrayList<Posts> res = new ArrayList<>();
+        posts.ifPresent(res::add);
+        model.addAttribute("posts", res);
+        return "edit";
+
+    }
+    @PostMapping("/blog/blog/{id}/edit")
+    public String postEdit(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String text,
+                          Model model) {
+        Posts posts = postsRepo.findById(id).orElseThrow();
+        posts.setTitle(title);
+        posts.setAnons(anons);
+        posts.setText(text);
+        postsRepo.save(posts);
+        return "redirect:/blog";
+    }
+    @GetMapping("/blog/blog/{id}/remove")
+    public String delete(@PathVariable(value = "id") long id){
+        Posts posts = postsRepo.findById(id).orElseThrow();
+        postsRepo.delete(posts);
+        return "redirect:/blog";
+    }
 }
