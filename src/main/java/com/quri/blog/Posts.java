@@ -60,4 +60,13 @@ public class Posts {
     public void setViews(int views) {
         this.views = views;
     }
+
+    public Posts() {
+    }
+
+    public Posts(String text, String title, String anons) {
+        this.text = text;
+        this.title = title;
+        this.anons = anons;
+    }
 }
