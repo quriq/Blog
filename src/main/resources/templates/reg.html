@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Spring Security Example </title>
+    <link th:href="@{/css/reg.css}" rel="stylesheet">
 </head>
 <body>
 <div th:if="${param.error}">
@@ -10,9 +11,9 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/reg}" th:object="${user}" method="post">
+<form th:action="@{/reg}" th:object="${user}" method="post" class="registration-container">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-    <div><label> User Name : <input type="text" th:field="*{login}"/></label></div>
+    <div><label> Username: <input type="text" th:field="*{login}"/></label></div>
     <div><label> Password: <input type="password" th:field="*{psw}"/> </label></div>
     <div><input type="submit" value="Sign Up"/></div>
 </form>

@@ -5,7 +5,7 @@
     <link th:href="@{/css/blog.css}" rel="stylesheet">
 </head>
 <body>
-<div th:each="el : ${posts}">
+<div th:each="el : ${posts}" class="paragraph-container">
     <h3 th:text="${el.title}"/>
     <p th:text="${el.author}"/>
     <p th:text="${el.text}"/>
