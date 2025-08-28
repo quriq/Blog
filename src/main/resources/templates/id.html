@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Page</title>
+    <link th:href="@{/css/blog.css}" rel="stylesheet">
+</head>
+<body>
+<div th:each="el : ${posts}">
+    <h3 th:text="${el.title}"/>
+    <p th:text="${el.author}"/>
+    <p th:text="${el.text}"/>
+    <a th:href="'blog/' + ${el.id} + '/edit'">Редактировать</a>
+    <form th:action="'blog/' + ${el.id} + '/remove'">
+        <button>Удалить</button>
+    </form>
+</div>
+<footer><p>© 2025 Мой Сайт</p></footer>
+</body>
+</html>

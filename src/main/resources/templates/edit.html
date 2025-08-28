@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Page</title>
+    <link th:href="@{/css/blog.css}" rel="stylesheet">
+</head>
+<body>
+<div>
+    <h1>Редактирование статьи</h1>
+    <div th:each="el : ${posts}">
+    <form method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <input type="text"  th:value="${el.title}" name="title" >
+        <input type="text" th:value="${el.anons}" name="anons" >
+        <input type="text" th:value="${el.text}" name="text" >
+        <button type="submit">Обновить статью</button>
+    </form>
+    </div>
+</div>
+<footer><p>© 2025 Мой Сайт</p></footer>
+</body>
+</html>
